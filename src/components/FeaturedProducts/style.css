@@ -1,0 +1,15 @@
+.products_wrapper{
+  padding: 0 5rem;
+}
+.products_ul{
+  display: flex;
+  padding: 0;
+}
+.products_ul li{
+  width: 100%;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+.products_ul li:first-child{
+  margin-left: 0;
+}
