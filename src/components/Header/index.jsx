@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './style.css';
 
-const HeaderComponent = () => {
-  const props = {
+const HeaderComponent = (payload = {}) => {
+  let props = {
     title: 'JianhuiChen',
     navs: [{ label: '主页', url: '/' }, { label: '产品目录', url: '/collections/all' }, { label: '联系方式', url: '/pages/contact' }],
     buttons: [{ icon: 'icon-search', click: () => console.log('query') }, { icon: 'icon-store', click: () => console.log('store') }]
   };
+  props = {...props, ...payload};
   const pathname = location.pathname;
   return (
     <header className={styles.header}>

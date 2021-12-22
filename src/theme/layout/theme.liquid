@@ -134,6 +134,9 @@
       {% comment %} 引入全局工具方法 {% endcomment %}
       <script src="{{ 'utils.js' | asset_url }}"></script>
     {% comment %}theme-check-enable ParserBlockingScriptTag,RemoteAsset,ParserBlockingJavaScript{% endcomment %}
+    <script data-img_url="{{ 'header.jpg' | asset_url }}">
+      
+    </script>
   </head>
 
   <body class="gradient">
@@ -150,6 +153,7 @@
       }
     </script>
     <script src="{{ 'Header.js' | asset_url }}" defer="defer" onload="HeaderOnLoad()"></script> {% endcomment %}
+
     <script data-render="Header" data-src="{{ 'Header.js' | asset_url }}">
       _sunziRenderDom('Header');
     </script>
