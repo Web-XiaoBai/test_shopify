@@ -7,15 +7,15 @@
  * @param {string} renderName 渲染的组件名称
  * @param {object} props 传递参数
  */
-const _cacheMap = new Map();
+const _cacheMap = new Map(); // 任务队列
 const _sunziRenderDom = (renderName, props = {}) => {
   const scriptDom = document.querySelector(`script[data-render=${renderName}]`);
   const DOM = document.createElement('div');
   DOM.classList = '_sunziRenderDom';
   const parentNode = scriptDom.parentNode;
-  /* ReactDom渲染组件 */
+  /* ReactDom渲染组件方法 */
   const renderDom = () => ReactDOM.render(React.createElement(window[renderName], props), DOM);
-  /* 将注册的回调取出执行 */
+  /* 将注册的任务取出执行 */
   const handleFunction = () => {
     const _list = _cacheMap.get(renderName).list;
     _list.forEach(fn => {
