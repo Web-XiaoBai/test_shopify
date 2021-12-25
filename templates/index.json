@@ -1,7 +1,10 @@
 {
   "sections": {
     "home": {
-      "type": "home"
+      "type": "home",
+      "settings": {
+        "collection": "test-123-456"
+      }
     }
   },
   "order": [
