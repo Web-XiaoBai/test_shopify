@@ -1,0 +1,21 @@
+
+<script data-render="Home" data-src="{{ 'Home.js' | asset_url }}">
+  {% assign current_collection = collections[section.settings.collection] %}
+  _sunziRenderDom('Home', {
+    blocks: {{ current_collection.products | json }}
+  });
+</script>
+
+{% schema %}
+{
+  "name": "home",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "JiHe"
+    }
+  ]
+}
+{% endschema %}
