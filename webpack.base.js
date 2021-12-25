@@ -6,7 +6,7 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src")
     },
-    extensions: [".js", ".jsx", ".css"]
+    extensions: [".js", ".jsx", ".css", ".tsx", ".ts"]
   },
   module: {
     rules: [
@@ -21,6 +21,11 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        exclude: [/node_modules/, /src\/theme/],
       }
     ]
   }

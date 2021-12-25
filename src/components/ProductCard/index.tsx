@@ -1,9 +1,18 @@
-import React from 'react';
-import styles from './style.css';
+import type { IProductCart } from '@/pages/Home';
+import styles from './style.less';
 
-const ProductCard = (props = {}) => {
-  const { card } = props;
-  const toFixedPrice = (price) => (price / 100).toFixed(2);
+interface ICardProps {
+  card: IProductCart
+}
+
+const ProductCard: React.FC<ICardProps> = ({card}) => {
+   /**
+    * 格式化价格
+    * @param price 整数价格
+    */
+  function toFixedPrice(price:number): string {
+    return `$${(price / 100).toFixed(2)} USD`;
+  };
 
   return (
     <div className={styles.card_wrapper}>
@@ -21,9 +30,9 @@ const ProductCard = (props = {}) => {
         <h3><a href={`/products/${card.handle}`}>{card.title}</a></h3>
         <div>
           {
-            card.compare_at_price && <span className={styles.compare_price}>{'$'+toFixedPrice(card.compare_at_price)} USD</span>
+            card.compare_at_price && <span className={styles.compare_price}>{toFixedPrice(card.compare_at_price)}</span>
           }
-          <span className={styles.price}>{'$'+toFixedPrice(card.price)} USD</span>
+          <span className={styles.price}>{toFixedPrice(card.price)}</span>
         </div>
       </div>
     </div>

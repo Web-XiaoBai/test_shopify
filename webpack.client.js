@@ -6,10 +6,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 /* 获取page目录下的组件 */
 function outputConfig() {
+  const entrySrc = './src/pages';
   const result = {};
-  fs.readdirSync("./src/components")
+  fs.readdirSync(entrySrc)
     .forEach(file => {
-      result[file] = `./src/components/${file}`
+      result[file] = `${entrySrc}/${file}`
     });
   return result;
 }
@@ -55,10 +56,11 @@ const clientConfig = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.less$/,
         use: [
           { loader: 'style-loader', options: { injectType: 'styleTag' } },
           'css-loader?modules',
+          'less-loader'
         ],
       },
       {
@@ -85,15 +87,15 @@ const clientConfig = {
       }
     ]
   },
-  plugins: [
-    new CopyPlugin([
-      {
-        from: path.join(__dirname, '/src/utils'),
-        to: path.join(__dirname, '/dist/assets'),
-        ignore: ['.js']
-      }
-    ])
-  ],
+  // plugins: [
+  //   new CopyPlugin([
+  //     {
+  //       from: path.join(__dirname, '/src/utils'),
+  //       to: path.join(__dirname, '/dist/assets'),
+  //       ignore: ['.js']
+  //     }
+  //   ])
+  // ],
 };
 
 module.exports = merge(baseConfig, clientConfig);

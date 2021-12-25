@@ -24,9 +24,9 @@
 ├── package-lock.json
 ├── package.json（项目依赖文件）
 ├── src
-│   ├── assets（开发资源）
-│   ├── components（React组件）
-│   ├── global（全局公共组件）
+│   ├── assets（静态资源）
+│   ├── pages（React容器组件）
+│   ├── components（React展示组件）
 │   ├── theme（shopify theme主题目录）
 │   └── utils（全局工具方法）
 ├── webpack.base.js（webpack基础配置）
