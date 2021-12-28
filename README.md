@@ -15,7 +15,10 @@
 * shopify theme serve
 
 ## 推送源码到子仓库
-* git subtree push –-prefix=<子目录名> <子仓库地址> 分支
+* 1、提交本地主分支：git add <cache> git commit <info>
+* 2、推送本地主分支：git push
+* 3、拉取子目录：git subtree pull –-prefix=<子目录名> <子仓库地址> 分支
+* 4、推送子目录：git subtree push –-prefix=<子目录名> <子仓库地址> 分支
 
 ## 目录说明
 ```
